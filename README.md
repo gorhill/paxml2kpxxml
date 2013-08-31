@@ -165,7 +165,7 @@ Now, copy the Perl code below, and save it to a text file onto the Desktop of yo
     $writer->end();
     
 
-    Save the file and quit the text editor
+Save the file and quit the text editor
 
 So now we are ready to convert our Password Agent XML file to a KeePassX XML file.
 
