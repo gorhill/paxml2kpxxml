@@ -52,9 +52,13 @@ While at it, ensure you have KeePassX installed:
 * In the resulting list, find the entry named "KeePassX / Cross Platform Password Manager"
 * Install it if not already installed
 
-Now:
+Now, the script:
 
 * Download the file <https://github.com/gorhill/paxml2kpxxml/blob/master/paxml2kpxxml.pl> onto your desktop
+* Right-click onto the newly downloaded file and select [Properties]
+* In the dialog box, click the [Permissions] tab
+* Check [Allow executing file as program]
+* Click [Close]
 
 So now we are ready to convert our Password Agent XML file to a KeePassX XML file.
 
