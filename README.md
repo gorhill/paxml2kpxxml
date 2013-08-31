@@ -65,28 +65,29 @@ Now, copy the Perl code below, and save it to a text file onto the Desktop of yo
 * A text editor opens with the content of the newly created file — which is obviously empty
 * Cut and paste the code below into the text editor:
 
+    
     #!/usr/bin/perl
-
+    
     use warnings;
     use strict;
-
+    
     # Load whole file in memory
     my $input;
     while (<>) {
      $input = $input . $_;
      }
-
+    
     # Password Agent generates an ISO-8859-1 XML file
     use utf8;
     utf8::encode($input);
-
+    
     # create XPath object
     use XML::XPath;
     my $xp = XML::XPath->new(xml=>$input);
-
+    
     use Date::Format;
     my $maxmonth = 0;
-
+    
     sub parse_date {
      if ($_[0]) {
      $_[0] =~ /(\d{4})/;
@@ -96,7 +97,7 @@ Now, copy the Perl code below, and save it to a text file onto the Desktop of yo
      }
      return [7,7,2010-1900];
      }
-
+    
     # iterate through groups, entries
     my %groups = ();
     my $groupnodes = $xp->find('//group');
@@ -121,21 +122,21 @@ Now, copy the Perl code below, and save it to a text file onto the Desktop of yo
        }
       }
      }
-
+    
     # date format must be: YYYY-MM-DDTHH:MM:SS
     my $date_template = q"%Y-%m-%dT12:00:00";
     my $imday = $maxmonth <= 12 ? 0 : 1;
-
+    
     # generate keepassx xml file
     # UNSAFE mode required, as the KeePassX's DOCTYPE doesn't
     # match its first tag, causing XML::Writer to abort
     use XML::Writer;
     my $writer = new XML::Writer(UNSAFE => !0);
-
+    
     $writer->xmlDecl();
     $writer->doctype("KEEPASSX_DATABASE");
     $writer->startTag("database");
-
+    
     while (my ($groupname, $entries) = each %groups) {
      $writer->startTag("group");
      $writer->dataElement("title", $groupname);
@@ -159,9 +160,10 @@ Now, copy the Perl code below, and save it to a text file onto the Desktop of yo
       }
      $writer->endTag();
      }
-
+    
     $writer->endTag();
     $writer->end();
+    
 
     Save the file and quit the text editor
 
