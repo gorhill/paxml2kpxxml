@@ -80,9 +80,9 @@ Now we just need to import the newly generated file into KeePassX:
 
 Very important, last steps:
 
-* Delete all copies of "mypa.xml" files, from your Windows and Ubuntu installations
-* Delete copy of "mykpx.xml" file from your Ubuntu desktop
-* Remove these files from the Windows and Ubuntu "trash cans" as well
+* Delete (or better, <http://linux.die.net/man/1/shred>) all copies of "mypa.xml" files, from your Windows and Ubuntu installations
+* Delete (or better, <http://linux.die.net/man/1/shred>) copy of "mykpx.xml" file from your Ubuntu desktop
+* Remove these files from the Windows and Ubuntu "trash cans" as well (applies only if you did not <http://linux.die.net/man/1/shred>)
 
 Little kink(s):
 
